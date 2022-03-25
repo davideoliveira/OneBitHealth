@@ -6,16 +6,16 @@ import { View, Text, TextInput, Button } from "react-native";
 
 export default function Form(){
 
-const [altura, setAltura]=useState(null)
+const [altura, setAltura]=useState(null)              //Declara variavel altura com useState para atualiza-la   const["variavel","funcAttVariavel"]=useState("valorInicial")
 const [peso, setPeso]=useState(null)
 const [imc, setImc]=useState(null)
 const [textButton, setTextButton]= useState("Calcular")
 
-function imcCalculator(){
-    return setImc((peso/(altura*altura)).toFixed(2))
+function imcCalculator(){                                   //função para calcular o imc
+    return setImc((peso/(altura*altura)).toFixed(2))        //realiza o calculo e atuliza a variavel imc        tofixed é o número de casas decimais
 }
 
-function validation(){
+function validation(){                              
     if(peso != null && altura != null){
         imcCalculator()
         setPeso(null)
@@ -34,10 +34,10 @@ function validation(){
 
                 <Text>Altura</Text>
                 <TextInput
-                    onChangeText={setAltura}
+                    onChangeText={setAltura}        //Att a func setAltura toda vez que o texto é alterado
                     value={altura}
-                    placeholder="Ex. 1.75"
-                    keyboardType="numeric"
+                    placeholder="Ex. 1.75"          //Texto que fica na caixa de input quando está vazia
+                    keyboardType="numeric"          // Tipo de teclado
                 />
 
                 <Text>Peso</Text>
@@ -48,7 +48,7 @@ function validation(){
                     keyboardType="numeric"
                 />
                 <Button
-                    onPress={() => validation()}
+                    onPress={() => validation()}        //Quando pressionado ativa a func validation
                     title={textButton}
                  />
             </View>
