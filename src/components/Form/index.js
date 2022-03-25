@@ -1,6 +1,6 @@
 import React, {useState} from "react";
-import { View, Text, TextInput, Button } from "react-native";
-
+import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import styles from "./style";
 
 
 
@@ -29,28 +29,32 @@ function validation(){
 }
 
     return(
-        <View>
-            <View>
+        <View style={styles.formContext}>
+            <View style={styles.form}>
 
-                <Text>Altura</Text>
+                <Text style={styles.formLabel}>Altura</Text>
                 <TextInput
+                    style={styles.input}
                     onChangeText={setAltura}        //Att a func setAltura toda vez que o texto é alterado
                     value={altura}
                     placeholder="Ex. 1.75"          //Texto que fica na caixa de input quando está vazia
                     keyboardType="numeric"          // Tipo de teclado
                 />
 
-                <Text>Peso</Text>
+                <Text style={styles.formLabel}>Peso</Text>
                 <TextInput
+                    style={styles.input}
                     onChangeText={setPeso}
                     value={peso}
                     placeholder="Ex. 75.365"
                     keyboardType="numeric"
                 />
-                <Button
-                    onPress={() => validation()}        //Quando pressionado ativa a func validation
-                    title={textButton}
-                 />
+                <TouchableOpacity                   //Tipo de botao
+                style={styles.buttonCalculator}
+                onPress={() => {validation()}}>
+                <Text style={styles.textButtonCalculator}>{textButton}</Text>
+                </TouchableOpacity>
+                
             </View>
             
             <View>
